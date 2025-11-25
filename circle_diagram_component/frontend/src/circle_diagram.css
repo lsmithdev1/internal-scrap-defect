@@ -1,0 +1,309 @@
+.circle-diagram-container {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: transparent;
+  padding: 20px;
+}
+
+.canvas-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.click-counter {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+  letter-spacing: 0.5px;
+}
+
+.circle-canvas {
+  border: 3px solid #e2e8f0;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="14" r="12" fill="none" stroke="%23dc2626" stroke-width="3"/><line x1="14" y1="2" x2="14" y2="26" stroke="%23dc2626" stroke-width="2"/><line x1="2" y1="14" x2="26" y2="14" stroke="%23dc2626" stroke-width="2"/></svg>') 14 14, crosshair;
+  background-color: #f8fafc;
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+.info-box {
+  margin-top: 15px;
+  padding: 15px 20px;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  border-radius: 12px;
+  font-size: 13px;
+  border: none;
+  color: #1e293b;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 500;
+}
+
+.data-point {
+  padding: 8px 12px;
+  background: white;
+  color: #1e293b;
+  border-left: 4px solid #dc2626;
+  font-size: 12px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background: white;
+  padding: 35px;
+  border: none;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 750px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: #1e293b;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.modal-info {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  padding: 18px 20px;
+  border-radius: 12px;
+  margin: 20px 0;
+  border: 2px solid #e2e8f0;
+}
+
+.modal-info p {
+  margin: 8px 0;
+  font-size: 14px;
+  color: #475569;
+  font-weight: 600;
+}
+
+.modal-info strong {
+  color: #1e293b;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.modal-btn {
+  flex: 1;
+  padding: 18px 30px;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-inboard {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.btn-inboard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+}
+
+.btn-inboard:active {
+  transform: translateY(0);
+}
+
+.btn-outboard {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+.btn-outboard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+}
+
+.btn-outboard:active {
+  transform: translateY(0);
+}
+
+.btn-submit {
+  width: 100%;
+  background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+  color: white;
+  margin-top: 15px;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.5);
+}
+
+.btn-submit:active {
+  transform: translateY(0);
+}
+
+.selected-option {
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  padding: 12px 20px;
+  border-radius: 10px;
+  margin: 15px 0;
+  font-weight: 700;
+  color: #1e40af;
+  border: 2px solid #3b82f6;
+  text-align: center;
+  font-size: 15px;
+}
+
+.defect-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+  padding: 0;
+}
+
+.defect-tile {
+  padding: 18px 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.defect-tile:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.defect-tile:active {
+  transform: translateY(-2px) scale(1.01);
+}
+
+.defect-tile:nth-child(6n+1) { 
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+.defect-tile:nth-child(6n+2) { 
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+.defect-tile:nth-child(6n+3) { 
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+.defect-tile:nth-child(6n+4) { 
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+.defect-tile:nth-child(6n+5) { 
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+.defect-tile:nth-child(6n+6) { 
+  background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+}
+
+.cavity-input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  background-color: #f8fafc;
+  color: #1e293b;
+  box-sizing: border-box;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.cavity-input:focus {
+  outline: none;
+  border-color: #dc2626;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.cavity-input::placeholder {
+  color: #94a3b8;
+}
+
+@media (max-width: 768px) {
+  .defect-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .modal-content {
+    padding: 25px;
+  }
+  
+  .modal-btn {
+    padding: 15px 20px;
+    font-size: 14px;
+  }
+}
