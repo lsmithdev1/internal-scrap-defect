@@ -11,8 +11,7 @@ from database_sqlite import log_defect_to_database, get_defect_count
 st.set_page_config(
     page_title="Defect Logger | Brembo QC",
     page_icon="🔧",
-    layout="wide",
-    initial_sidebar_state="expanded"
+    layout="wide"
 )
 
 # Modern professional styling
