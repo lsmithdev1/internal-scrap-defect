@@ -12,7 +12,7 @@ st.set_page_config(
     page_title="Defect Logger | Brembo QC",
     page_icon="🔧",
     layout="wide",
-    initial_sidebar_state="collapsed"
+    initial_sidebar_state="expanded"
 )
 
 # Modern professional styling
@@ -189,7 +189,8 @@ st.markdown("""
 st.markdown("""
 <div class="main-header">
     <div class="company-name">BREMBO</div>
-    <h1>Internal Scrap Tracking </h1>
+    <h1>Internal Scrap Tracking System</h1>
+    <p>Manufacturing Quality Control | Real-time Defect Logging</p>
 </div>
 """, unsafe_allow_html=True)
 
