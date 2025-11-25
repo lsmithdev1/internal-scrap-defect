@@ -14,6 +14,18 @@ st.set_page_config(
     layout="wide"
 )
 
+# Force sidebar to stay visible
+st.markdown("""
+<style>
+    [data-testid="stSidebar"] {
+        display: block !important;
+    }
+    [data-testid="collapsedControl"] {
+        display: block !important;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 # Modern professional styling
 st.markdown("""
 <style>
