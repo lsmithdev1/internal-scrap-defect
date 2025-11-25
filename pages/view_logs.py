@@ -141,6 +141,10 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
+# Navigation
+if st.button("⬅️ Back to Home"):
+    st.switch_page("Home.py")
+
 # Connect to database
 try:
     conn = sqlite3.connect('defect_logs.db')

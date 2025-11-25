@@ -205,6 +205,12 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
+# Navigation hint
+col1, col2 = st.columns([6, 1])
+with col2:
+    if st.button("📊 View Logs", use_container_width=True):
+        st.switch_page("pages/view_logs.py")
+
 part_numbers = [
     "19.A956.04", "18.A957.04", "18.N233.03", "18.N276.00_M", "18.N325.02", 
     "18.N352.00_M", "18.N353.00_M", "19.9921.03", "19.9922.03", "19.9923.03", 
